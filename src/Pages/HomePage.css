@@ -1,0 +1,60 @@
+
+.carousel-container {
+    max-width: 800px; /* Adjust the value as per your requirements */
+    margin: 0 auto; /* Center the carousel horizontally */
+  }
+  
+  
+  .carousel-inner img {
+    height: 600px;
+    width: 100%;
+    
+  }
+  
+  body {
+    font-family: Times New Roman, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: lightgrey;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0;
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+  .about {
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  .info {
+    font-size:20px;
+    font-weight:bolder;
+    text-align:left;
+    color:navy;
+    margin-top: 20px;
+  }
+  
+  .footer {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .footer a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  
+  
+  img {
+    max-width: 100%;
+  }
+  
+  
