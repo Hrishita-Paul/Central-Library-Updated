@@ -1,15 +1,11 @@
-
-.carousel-container {
-    max-width: 800px; /* Adjust the value as per your requirements */
-    margin: 0 auto; /* Center the carousel horizontally */
+ img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:700px;
+    width:800px;
   }
   
-  
-  .carousel-inner img {
-    height: 600px;
-    width: 100%;
-    
-  }
   
   body {
     font-family: Times New Roman, Arial, sans-serif;
@@ -24,6 +20,7 @@
     margin: 0 0;
     background-color: #f1f1f1;
     text-align: center;
+    
   }
   
   .about {

@@ -21,7 +21,7 @@ const StudentDetails = () => {
   });
 
   return (
-    <div className="container">
+    <div className="container page-content">
       <p className="heading">Students' Details</p>
       <input
         type="text"

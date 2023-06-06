@@ -8,10 +8,10 @@
     text-align: center;
   }
   
-  .col-form-label,
   .label-text {
     color: rgb(196, 68, 196);
     font-weight: bold;
+    text-align:left;
   }
   
   .btn {
@@ -21,25 +21,12 @@
     
   }
   
-  .form-check-label {
-    display: flex;
-    justify-content: flex-start;
-    text-align:left;
-  }
   
   .alert {
     margin-top: 20px;
   }
   
-  table {
-    margin-top: 30px;
-    
-  }
+ 
   
-  .table-warning th {
-    background-color: rgb(255, 248, 225);
-    color: rgb(98, 0, 255);
-    font-weight: bold;
-    width:200px;
-  }
+ 
   
