@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import './BookIssue.css';
-
-const BookIssue = ({ onBookIssueSubmit }) => {
+const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
   const [studentName, setStudentName] = useState('');
   const [bookName, setBookName] = useState('');
   const [dateOfIssue, setDateOfIssue] = useState('');
@@ -11,17 +9,12 @@ const BookIssue = ({ onBookIssueSubmit }) => {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    const storedBookDetails = localStorage.getItem('bookDetails');
-    if (storedBookDetails) {
-      setFilteredBookDetails(JSON.parse(storedBookDetails));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('bookDetails', JSON.stringify(filteredBookDetails));
-  }, [filteredBookDetails]);
+    // Update filteredBookDetails when bookDetails change
+    setFilteredBookDetails(bookDetails);
+  }, [bookDetails]);
 
   const handleInputChange = (e) => {
+    // Update state based on input changes
     const { name, value } = e.target;
     if (name === 'studentName') {
       setStudentName(value);
@@ -37,6 +30,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Create a new book issue object
     const newBookIssue = {
       studentName,
       bookName,
@@ -44,10 +38,10 @@ const BookIssue = ({ onBookIssueSubmit }) => {
       lastDateOfReturn,
     };
 
+    // Call the onBookIssueSubmit function with the new book issue
     onBookIssueSubmit(newBookIssue);
 
-    setFilteredBookDetails((prevFilteredDetails) => [...prevFilteredDetails, newBookIssue]);
-
+    // Reset the form inputs
     setStudentName('');
     setBookName('');
     setDateOfIssue('');
@@ -55,15 +49,20 @@ const BookIssue = ({ onBookIssueSubmit }) => {
   };
 
   const handleSearch = (e) => {
+    // Filter book details based on search value
     const searchValue = e.target.value;
     setSearchValue(searchValue);
-    const filteredDetails = filteredBookDetails.filter((bookIssue) =>
-      bookIssue.studentName.toLowerCase().includes(searchValue.toLowerCase())
+    const filteredDetails = bookDetails.filter(
+      (bookIssue) =>
+        bookIssue.studentName.toLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredBookDetails(filteredDetails);
   };
 
+  
+
   const renderTableRows = () => {
+    // Render table rows based on search value and filteredBookDetails
     if (searchValue) {
       return filteredBookDetails.map((bookIssue, index) => (
         <tr key={index}>
@@ -74,7 +73,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
         </tr>
       ));
     } else {
-      return filteredBookDetails.map((bookIssue, index) => (
+      return bookDetails.map((bookIssue, index) => (
         <tr key={index}>
           <td>{bookIssue.studentName}</td>
           <td>{bookIssue.bookName}</td>
@@ -83,11 +82,6 @@ const BookIssue = ({ onBookIssueSubmit }) => {
         </tr>
       ));
     }
-  };
-
-  const handleClearAll = () => {
-    localStorage.removeItem('bookDetails');
-    setFilteredBookDetails([]);
   };
 
   return (
@@ -102,13 +96,15 @@ const BookIssue = ({ onBookIssueSubmit }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Search by student name"
+                placeholder="Search by student's name"
                 onChange={handleSearch}
               />
             </div>
           </div>
 
           <form onSubmit={handleSubmit}>
+            {/* Form inputs */}
+            {/* Student Name */}
             <div className="form-group row">
               <label htmlFor="studentName" className="label-text">
                 Student Name
@@ -127,6 +123,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
             </div>
             <br />
 
+            {/* Book Name */}
             <div className="form-group row">
               <label htmlFor="bookName" className="label-text">
                 Name of Book
@@ -145,6 +142,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
             </div>
             <br />
 
+            {/* Date of Issue */}
             <div className="form-group row">
               <label htmlFor="dateOfIssue" className="label-text">
                 Date of Issue
@@ -163,6 +161,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
             </div>
             <br />
 
+            {/* Last Date of Return */}
             <div className="form-group row">
               <label htmlFor="lastDateOfReturn" className="label-text">
                 Last Date of Return
@@ -181,6 +180,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
             </div>
             <br />
 
+            {/* Submit button */}
             <div className="form-group row">
               <div className="col-sm-10">
                 <button type="submit" className="btn btn-primary">
@@ -190,6 +190,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
             </div>
           </form>
 
+          {/* Book details table */}
           <div>
             <p className="heading">Book Details</p>
             <table className="table table-striped">
@@ -203,9 +204,7 @@ const BookIssue = ({ onBookIssueSubmit }) => {
               </thead>
               <tbody>{renderTableRows()}</tbody>
             </table>
-            <button className="btn btn-danger" onClick={handleClearAll}>
-              Clear All
-            </button>
+            
           </div>
         </div>
       </div>
