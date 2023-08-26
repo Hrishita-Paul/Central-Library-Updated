@@ -1,10 +1,16 @@
-.container {
+.page-content-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
-  }
+    background-image:
+    url('https://images.unsplash.com/photo-1544640808-32ca72ac7f37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top:50px;
   
+  }
+ 
   .heading {
     font-size: 40px;
     font-weight: bold;
@@ -39,11 +45,12 @@
   }
   
   .student-id {
-    font-size: 14px;
-    color: #c19e9e;
+    font-size: 16px;
+    color: #cccaca;
     margin-top: 5px;
     background-color:rgb(80, 15, 142);
     text-align: center;
+    font-weight:bold;
   }
   
   /* Animation */

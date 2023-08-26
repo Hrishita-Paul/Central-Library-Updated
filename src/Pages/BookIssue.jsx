@@ -59,7 +59,7 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
     setFilteredBookDetails(filteredDetails);
   };
 
-  
+
 
   const renderTableRows = () => {
     // Render table rows based on search value and filteredBookDetails
@@ -88,8 +88,6 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
     <div className="page-content">
       <div className="container my-3">
         <p className="heading">Book Issue</p>
-        <hr />
-
         <div>
           <div className="form-group row">
             <div className="col-sm-12 my-3">
@@ -204,7 +202,7 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
               </thead>
               <tbody>{renderTableRows()}</tbody>
             </table>
-            
+
           </div>
         </div>
       </div>

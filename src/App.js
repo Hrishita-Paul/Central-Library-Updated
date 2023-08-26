@@ -18,7 +18,7 @@ export default function App() {
   return (
     <Router>
       <Navbar bg="dark" expand="lg" variant="dark" className="fixed-top">
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/Central-Library-Updated">
           Home
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -34,7 +34,7 @@ export default function App() {
         </Navbar.Collapse>
       </Navbar>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/Central-Library-Updated" element={<HomePage />} />
         <Route exact path="/studentDetails" element={<StudentDetails />} />
         <Route
           exact

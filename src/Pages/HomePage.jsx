@@ -7,7 +7,7 @@ const Home = () => {
     <div className="page-content">
       <h1>Welcome to Central Library, N.I.T. Silchar</h1>
    
-            <img src="https://scontent.fgau1-1.fna.fbcdn.net/v/t1.6435-9/141938641_2913827258858303_5917663225443748294_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=mRewwJopBAMAX-LhXE-&_nc_oc=AQkZpSZT3GeH2M2QYcnqMuGk3fZpBBVhdo3rhTzYAGc-wHdaRQpXS8u0DT_jFGwOJFRolWTZ6lWk0EsFIuypLCdP&_nc_ht=scontent.fgau1-1.fna&oh=00_AfBXUsORN6ALUTcNOE1o8Y2LPKAlJkV1xBUDfRwBG_PcDQ&oe=64D08FC4"  alt="..." />
+            <img src="https://st4.depositphotos.com/1001877/37816/i/450/depositphotos_378168190-stock-photo-library-bookshelves-books-textbooks-learning.jpg"  alt="..." />
           
     
       <br />
