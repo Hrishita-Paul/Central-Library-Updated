@@ -34,7 +34,7 @@ export default function App() {
         </Navbar.Collapse>
       </Navbar>
       <Routes>
-        <Route exact path="/Central-Library-Updated" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/studentDetails" element={<StudentDetails />} />
         <Route
           exact
