@@ -24,7 +24,7 @@ export default function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/Central-Library-updated" style={{ color: 'white' }}>
+          <Nav.Link as={Link} to="/" style={{ color: 'white' }}>
               Home
             </Nav.Link>
             <Nav.Link as={Link} to="/studentDetails" style={{ color: 'white' }}>
@@ -37,13 +37,9 @@ export default function App() {
         </Navbar.Collapse>
       </Navbar>
       <Routes>
-        <Route exact path="/Central-Library-Updated" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/studentDetails" element={<StudentDetails />} />
-        <Route
-          exact
-          path="/bookIssue"
-          element={<BookIssue bookDetails={bookDetails} onBookIssueSubmit={onBookIssueSubmit} />}
-        />
+        <Route exact path="/bookIssue" element={<BookIssue bookDetails={bookDetails} onBookIssueSubmit={onBookIssueSubmit} />}/>
       </Routes>
     </Router>
   );

@@ -6,7 +6,7 @@
     background-image:
     url('https://images.unsplash.com/photo-1544640808-32ca72ac7f37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw;
     padding-top:50px;
   
   }
@@ -23,11 +23,7 @@
     margin-bottom: 20px;
   }
   
-  .student-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  
   
   .student-card {
     width: 260px;
@@ -53,13 +49,4 @@
     font-weight:bold;
   }
   
-  /* Animation */
-  @keyframes scale {
-    from {
-      transform: scale(0.9);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
   

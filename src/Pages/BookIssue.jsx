@@ -5,6 +5,7 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
   const [bookName, setBookName] = useState('');
   const [dateOfIssue, setDateOfIssue] = useState('');
   const [lastDateOfReturn, setLastDateOfReturn] = useState('');
+  //filteredBookDetails is an array of objects containing only the books owned by the students according to search value
   const [filteredBookDetails, setFilteredBookDetails] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
@@ -72,7 +73,9 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
           <td>{bookIssue.lastDateOfReturn}</td>
         </tr>
       ));
-    } else {
+    } 
+    //If searchValue is an empty string display all the books in the bookDetails array
+    else {
       return bookDetails.map((bookIssue, index) => (
         <tr key={index}>
           <td>{bookIssue.studentName}</td>
