@@ -17,10 +17,14 @@ const BookIssue = () => {
   const [lastDateOfReturn, setLastDateOfReturn] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [bookDetails, setBookDetails] = useState(getBooksFromStorage());
+  
   useEffect(() => {
     localStorage.setItem("books",JSON.stringify(bookDetails));
    }, [bookDetails]);
 
+   useEffect(()=>{
+    window.scrollTo(0,0);
+  });
  
   // Function to add a new book to the book details
   const onBookIssueSubmit = (newBookIssue) => {

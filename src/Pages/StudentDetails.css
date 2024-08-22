@@ -6,12 +6,6 @@
     /* background-image:
     url("https://plus.unsplash.com/premium_vector-1724059331392-550225845096?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
     background: linear-gradient(135deg, #FFEFBA, #D4FC79) !important;
-   
-
-
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; Ensures the image is centered */
     min-width: 100vw; /* Full viewport width */
     min-height: 100vh; /* Full viewport height */
     padding-top:50px;
@@ -124,5 +118,12 @@
   .cancel {
     background-color: #f44336;
     color: white;
+  }
+  @media screen and (max-width:380px){
+    .student-list{
+      flex-direction: column;
+      align-items:center;
+      justify-content:center;
+    }
   }
   

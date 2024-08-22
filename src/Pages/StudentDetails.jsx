@@ -25,6 +25,9 @@ const StudentDetails = () => {
   useEffect(() => {
     saveStudentsToStorage(students);
   }, [students]);
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  });
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);

@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import StudentDetails from './Pages/StudentDetails';
 import BookIssue from './Pages/BookIssue';
+import Footer from "./Components/Footer";
 
 export default function App() {
   // Define state to hold the book details as an array
  
 
   return (
+    <>
     <Router>
       <Navbar bg="dark" expand="lg" variant="dark" className="fixed-top">
         <Navbar.Brand >
@@ -37,5 +39,7 @@ export default function App() {
         <Route exact path="/bookIssue" element={<BookIssue/>}/>
       </Routes>
     </Router>
+    <Footer/>
+    </>
   );
 }
