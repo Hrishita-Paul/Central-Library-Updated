@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -8,12 +8,7 @@ import BookIssue from './Pages/BookIssue';
 
 export default function App() {
   // Define state to hold the book details as an array
-  const [bookDetails, setBookDetails] = useState([]);
-
-  // Function to add a new book to the book details
-  const onBookIssueSubmit = (newBookIssue) => {
-    setBookDetails((prevBookDetails) => [...prevBookDetails, newBookIssue]);
-  };
+ 
 
   return (
     <Router>
@@ -39,7 +34,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/studentDetails" element={<StudentDetails />} />
-        <Route exact path="/bookIssue" element={<BookIssue bookDetails={bookDetails} onBookIssueSubmit={onBookIssueSubmit} />}/>
+        <Route exact path="/bookIssue" element={<BookIssue/>}/>
       </Routes>
     </Router>
   );

@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './BookIssue.css';
-const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
+const BookIssue = () => {
+  const getBooksFromStorage=()=>{
+    const books= localStorage.getItem("books");
+  
+    try {
+      return books ? JSON.parse(books) : [];
+    } catch (error) {
+      console.error('Error parsing books from localStorage', error);
+      return [];
+    }
+    }
   const [studentName, setStudentName] = useState('');
   const [bookName, setBookName] = useState('');
   const [dateOfIssue, setDateOfIssue] = useState('');
   const [lastDateOfReturn, setLastDateOfReturn] = useState('');
-  //filteredBookDetails is an array of objects containing only the books owned by the students according to search value
-  const [filteredBookDetails, setFilteredBookDetails] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-
+  const [bookDetails, setBookDetails] = useState(getBooksFromStorage());
   useEffect(() => {
-    // Update filteredBookDetails when bookDetails change
-    setFilteredBookDetails(bookDetails);
-  }, [bookDetails]);
+    localStorage.setItem("books",JSON.stringify(bookDetails));
+   }, [bookDetails]);
+
+ 
+  // Function to add a new book to the book details
+  const onBookIssueSubmit = (newBookIssue) => {
+    setBookDetails((prevBookDetails) => [...prevBookDetails, newBookIssue]);
+  };
 
   const handleInputChange = (e) => {
     // Update state based on input changes
@@ -41,6 +54,7 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
 
     // Call the onBookIssueSubmit function with the new book issue
     onBookIssueSubmit(newBookIssue);
+   
 
     // Reset the form inputs
     setStudentName('');
@@ -51,44 +65,18 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
 
   const handleSearch = (e) => {
     // Filter book details based on search value
-    const searchValue = e.target.value;
-    setSearchValue(searchValue);
-    const filteredDetails = bookDetails.filter(
-      (bookIssue) =>
-        bookIssue.studentName.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setFilteredBookDetails(filteredDetails);
+    setSearchValue(e.target.value);
   };
 
+  const filteredBookDetails = bookDetails.filter(
+    (bookIssue) =>
+      bookIssue.studentName.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
 
-  const renderTableRows = () => {
-    // Render table rows based on search value and filteredBookDetails
-    if (searchValue) {
-      return filteredBookDetails.map((bookIssue, index) => (
-        <tr key={index}>
-          <td>{bookIssue.studentName}</td>
-          <td>{bookIssue.bookName}</td>
-          <td>{bookIssue.dateOfIssue}</td>
-          <td>{bookIssue.lastDateOfReturn}</td>
-        </tr>
-      ));
-    } 
-    //If searchValue is an empty string display all the books in the bookDetails array
-    else {
-      return bookDetails.map((bookIssue, index) => (
-        <tr key={index}>
-          <td>{bookIssue.studentName}</td>
-          <td>{bookIssue.bookName}</td>
-          <td>{bookIssue.dateOfIssue}</td>
-          <td>{bookIssue.lastDateOfReturn}</td>
-        </tr>
-      ));
-    }
-  };
 
   return (
-    <div className="page-content">
+    <div className="page-content-3">
       <div className="container my-3">
         <p className="heading">Book Issue</p>
         <div>
@@ -203,7 +191,14 @@ const BookIssue = ({ bookDetails, onBookIssueSubmit }) => {
                   <th scope="col">Last Date of Return</th>
                 </tr>
               </thead>
-              <tbody>{renderTableRows()}</tbody>
+              <tbody>{filteredBookDetails.map((bookIssue, index) => (
+                <tr key={index}>
+                  <td>{bookIssue.studentName}</td>
+                  <td>{bookIssue.bookName}</td>
+                  <td>{bookIssue.dateOfIssue}</td>
+                  <td>{bookIssue.lastDateOfReturn}</td>
+                </tr>
+              ))}</tbody>
             </table>
 
           </div>
