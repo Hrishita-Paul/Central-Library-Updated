@@ -1,129 +1,159 @@
 .page-content-details {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  /* background-image:
+    url("https://plus.unsplash.com/premium_vector-1724059331392-550225845096?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+  background: linear-gradient(135deg, #FFEFBA, #D4FC79) !important;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.add {
+  color: white;
+  background-color: rgb(76, 136, 227);
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.search-bar {
+  width: 40%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.student-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.student-card {
+  width: 260px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #E6F7F1;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-name {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.student-id {
+  font-size: 16px;
+  color: black;
+  margin-top: 5px;
+  background-color: #FFCCCC;
+  font-weight: bold;
+  text-align: center;
+  font-weight: bold;
+}
+
+.delete {
+  background-color: rgb(211, 79, 70);
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  color: white;
+}
+
+/* StudentDetails.css */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw !important;
+  height: 100vh;
+  /* Full viewport height */
+  margin-left: 400px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  z-index: 1001;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+.save,
+.cancel {
+  margin: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+@media screen and (max-width: 380px) {
+  .student-list {
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
-    /* background-image:
-    url("https://plus.unsplash.com/premium_vector-1724059331392-550225845096?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
-    background: linear-gradient(135deg, #FFEFBA, #D4FC79) !important;
-    min-width: 100vw; /* Full viewport width */
-    min-height: 100vh; /* Full viewport height */
-    padding-top:50px;
+    justify-content: center;
   }
-
-  .heading {
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .add{
-    color:white;
-    background-color:rgb(76, 136, 227);
-    margin-bottom:10px;
-    border-radius:5px;
-    padding:10px;
-    
-  }
-  .search-bar {
-    width: 40%;
-    margin-bottom: 20px;
-    border-radius:5px;
-  }
-  
-  .student-list{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    gap:30px;
-  }
-  
-  .student-card {
-    width: 260px;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color:#E6F7F1;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .student-name {
-    font-size: 18px;
-    color: #333;
-    text-align:center;
-  }
-  
-  .student-id {
-    font-size: 16px;
-    color:black;
-    margin-top: 5px;
-    background-color:#FFCCCC;
-    font-weight:bold;
-    text-align: center;
-    font-weight:bold;
-  }
-  .delete{
-    background-color:rgb(211, 79, 70);
-    padding:7px;
-    border:none;
-    border-radius:4px;
-    width:100%;
-    color:white;
-  }
-  /* StudentDetails.css */
 
   .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50vw !important; 
-    height: 100vh; /* Full viewport height */
-    margin-left:400px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     display: flex !important;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* High z-index to ensure it appears above other content */
+    z-index: 1000 !important;
+    width: 100vw !important;
+    height: 100vh !important; /* Ensure it covers the full height */
+    position: fixed !important; /* Make sure it stays in the viewport */
+    top: 0; /* Ensure it starts at the top */
+    left: 0; /* Ensure it starts at the left */
+    background: rgba(0, 0, 0, 0.5); /* Optional: dim the background */
+    border: 2px solid red !important; /* Red border */
   }
-  
+
   .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    z-index: 1001; /* Ensures the content is visible above the modal background */
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    z-index: 1001 !important;
+    max-width: 90vw; /* Ensure it fits within the mobile screen */
+    max-height: 90vh; /* Ensure it fits within the mobile screen */
+    overflow: auto; /* Add scrolling if needed */
+    background: white; /* Background for content */
+    border: 2px solid red !important; /* Red border */
   }
-  
-  .modal-content input {
-    width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-  }
-  
-  .save, .cancel {
-    margin: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .save {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .cancel {
-    background-color: #f44336;
-    color: white;
-  }
-  @media screen and (max-width:380px){
-    .student-list{
-      flex-direction: column;
-      align-items:center;
-      justify-content:center;
-    }
-  }
-  
+}

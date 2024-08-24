@@ -1,35 +1,66 @@
 .page-content-3 {
-    margin-top: 50px;
-    background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
-    min-width:100vw;
-    min-height:100vh;
+  margin-top: 50px;
+  background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.search-bar {
+  margin-left: 9px !important;
+  width: 77.75vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.form-group {
+
+  display: flex;
+  width: 41vw;
+  justify-content: center;
+  padding: 20px;
+
+}
+
+.btn-1 {
+  width: 7vw;
+  margin-left: 0.75em;
+}
+.delete-1{
+  color:white;
+  background-color: #f44336;
+  width:30px;
+}
+.heading {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.label-text {
+  color: rgb(196, 68, 196);
+  font-weight: bold;
+  text-align: left;
+}
+
+.btn {
+  margin-top: 10px;
+  border-radius: 5px;
+  float: left;
+}
+
+.alert {
+  margin-top: 20px;
+}
+@media screen and (max-width:380px){
+  .form-group{
+    width:45vw;
   }
-  
-  .heading{
-    color:#000;
-    font-weight: bold;
-    text-align: center;
+  .btn-1{
+    width:20vw;
   }
-  
-  .label-text {
-    color: rgb(196, 68, 196);
-    font-weight: bold;
-    text-align:left;
-  }
-  
-  .btn {
-    margin-top: 10px;
-    border-radius: 5px;
-    float:left;
-    
-  }
-  
-  
-  .alert {
-    margin-top: 20px;
-  }
-  
- 
-  
- 
-  
+}

@@ -25,9 +25,10 @@ const StudentDetails = () => {
   useEffect(() => {
     saveStudentsToStorage(students);
   }, [students]);
-  useEffect(()=>{
-    window.scrollTo(0,0);
-  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
@@ -36,28 +37,21 @@ const StudentDetails = () => {
   const handleAddStudent = () => {
     const newStudent = { id: parseInt(newStudentId), name: newStudentName };
     setStudents([...students, newStudent]);
-    setShowModal(false); 
+    setShowModal(false);
     setNewStudentName('');
     setNewStudentId('');
   };
 
-  
   const deleteEntry = (id) => {
-    // Create a copy of the students array
-    let studentsCopy = students.slice();
-    
-    // Find the index of the student with the given id
+    const studentsCopy = students.slice();
     const index = studentsCopy.findIndex(student => student.id === id);
-    
+
     if (index !== -1) {
-      // Remove the student from the copy
       studentsCopy.splice(index, 1);
-      
-      // Update the students state
       setStudents(studentsCopy);
     }
   };
-  
+
   const filteredStudents = students.filter((student) =>
     student.name.toLowerCase().includes(searchValue.toLowerCase())
   );
@@ -65,10 +59,7 @@ const StudentDetails = () => {
   return (
     <div className="container page-content-details">
       <p className="heading">Students' Details</p>
-      <button className="add" onClick={() => {
-        setShowModal(true);
-  console.log('Modal triggered');
-}}>
+      <button className="add" onClick={() => setShowModal(true)}>
         Add a new student
       </button>
       <input
@@ -83,18 +74,15 @@ const StudentDetails = () => {
           <div className="student-card" key={student.id}>
             <p className="student-name">{student.name}</p>
             <p className="student-id">ID: {student.id}</p>
-            <button className="delete" onClick={()=>{
-              deleteEntry(student.id);
-              console.log(student.id);
-            }}>Delete Entry</button>
+            <button className="delete" onClick={() => deleteEntry(student.id)}>Delete Entry</button>
           </div>
         ))}
       </div>
 
       {/* Modal */}
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="modal" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h3>Add New Student</h3>
             <input
               type="text"
